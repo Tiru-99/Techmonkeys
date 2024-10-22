@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import Draggable from "react-draggable";
 import Aboutus from "@/components/Aboutus";
 import ClientTestimonials from "@/components/ClientTestimonial";
 import PortfolioCarousel from "@/components/PortfolioCarousel";

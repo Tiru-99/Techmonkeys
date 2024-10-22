@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
           <div className="text-center md:text-right mt-8 md:mt-0 md:mr-16">
             <div className="text-yellow-500 font-bold text-2xl">TECHMONKEYS</div>
             <p className="text-gray-400 mt-2">
-              Don't know where to get your car tinted? Logoipsum — practical, safe, and affordable.
+              Don&apost know where to get your car tinted? Logoipsum — practical, safe, and affordable.
             </p>
             <p className="text-gray-600 mt-4">&copy; 2023 — Copyright</p>
           </div>
