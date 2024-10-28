@@ -26,17 +26,32 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 text-gray-300 uppercase tracking-wide text-lg ">
-            <a href="#about" className="hover:text-yellow-300 font-thin">
-              About Us
-            </a>
-            <a href="#contact" className="hover:text-yellow-300 font-thin">
-              Contact
-            </a>
-            <a href="#services" className="hover:text-yellow-300  font-thin">
-              Services
-            </a>
-          </div>
+          <div className="hidden md:flex space-x-8 uppercase tracking-wide text-lg">
+                      <a href="#about" className="relative group font-thin">
+                        <span className="text-gray-300 transition-colors duration-300 group-hover:text-yellow-300">
+                          About Us
+                        </span>
+                        <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
+                      </a>
+
+                      <a href="#contact" className="relative group font-thin">
+                        <span className="text-gray-300 transition-colors duration-300 group-hover:text-yellow-300">
+                          Contact
+                        </span>
+                        <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
+                      </a>
+
+                      <a href="#services" className="relative group font-thin">
+                        <span className="text-gray-300 transition-colors duration-300 group-hover:text-yellow-300">
+                          Services
+                        </span>
+                        <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
+                      </a>
+            </div>
+
+
+
+
 
           {/* Mobile Hamburger Menu */}
           <div className="md:hidden">
