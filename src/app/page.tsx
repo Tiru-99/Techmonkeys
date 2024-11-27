@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect , useRef} from "react";
 import Aboutus from "@/components/Aboutus";
 import Footer from "@/components/Footer";
-import { Services } from "@/components/Services";
 import SmoothTypewriterPreloader from "@/components/Preloader";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import OurServices from "@/components/OurServices";
