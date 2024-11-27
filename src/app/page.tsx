@@ -2,16 +2,30 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion"; 
-import { useState, useEffect } from "react";
+import { useState, useEffect , useRef} from "react";
 import Aboutus from "@/components/Aboutus";
-import ClientTestimonials from "@/components/ClientTestimonial";
-import PortfolioCarousel from "@/components/PortfolioCarousel";
 import Footer from "@/components/Footer";
 import { Services } from "@/components/Services";
 import SmoothTypewriterPreloader from "@/components/Preloader";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
+import OurServices from "@/components/OurServices";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const[isHovered , setIsHovered] = useState(false);
+  const circleRef = useRef<HTMLDivElement | null>(null);
+
+
+  const handleMouseMove=(e: React.MouseEvent<HTMLDivElement>) =>{
+    if(circleRef.current){
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left; // Mouse X relative to the image
+      const y = e.clientY - rect.top;  // Mouse Y relative to the image
+
+      const circleSize = circleRef.current.offsetWidth / 2;
+      circleRef.current.style.transform = `translate(${x - circleSize}px, ${y - circleSize}px)`;
+    }
+  }
 
   useEffect(() => {
     // Simulate content loading or a data fetch
@@ -27,8 +41,8 @@ export default function Home() {
   }
 
   const letterVariants = {
-    hidden: { opacity: 0, y: -40 }, // Start off invisible and slightly above
-    visible: { opacity: 1, y: 0 }, // Fade in and slide to original position
+    hidden: { opacity: 0, y: -40 }, 
+    visible: { opacity: 1, y: 0 }, 
   };
 
   return (
@@ -70,6 +84,9 @@ export default function Home() {
           initial={{ opacity: 0, y: 50, scale: 1.1, rotate: -5 }}
           animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           <Image
             src="/comptyping.jpg"
@@ -77,10 +94,22 @@ export default function Home() {
             layout="fill"
             className="object-cover"
           />
+
+          {/* Circle that follows the cursor */}
+
+          {isHovered && (
+            <div
+              ref={circleRef}
+              className="absolute text-white flex items-center justify-center w-32 h-32 border border-white bg-black/20 rounded-full pointer-events-none transition-transform duration-100 -translate-x-1/2 -translate-y-1/2"
+            >
+              Contact Us
+            </div>
+          )}
+
         </motion.div>
       </div>
 
-      <div className="flex flex-wrap justify-around gap-8 p-4 bg-white">
+      <div className="flex flex-wrap justify-around gap-8 p-4 bg-gray-100">
         <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0">
           <Image
             src="/aws.png"
@@ -132,15 +161,16 @@ export default function Home() {
         </div>
       </div>
 
-      <Services />
+
+      <OurServices/>
 
       <Aboutus />
 
-      <ClientTestimonials />
+      <TestimonialCarousel/>
 
-      <PortfolioCarousel />
-
-      <Footer />
+        <Footer />
+    
+      
     </>
   );
 }

@@ -23,9 +23,9 @@ export function Services() {
 const data = [
   {
     category: "Web Design and Development",
-    title: "You can do more with AI.",
+    title: "We create powerful, dynamic websites that are as visually appealing as they are functional. Whether you need a sleek corporate website, an engaging portfolio, or an interactive platform, our team ensures every detail aligns with your brand’s identity.",
     src: "/hotelmanagement.jpg",
-    content: "hello world1"
+    content: "Custom Designs: Unique layouts designed specifically for your business.Responsive Development: Seamless experiences across desktop, tablet, and mobile devices.Optimized Performance: Fast-loading websites that enhance user engagement and SEO rankings.Integrated Features: From chatbots to CRM tools, we include functionalities that elevate your website’s usability."
   },
   {
     category: "Mobile App Development",

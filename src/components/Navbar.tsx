@@ -1,6 +1,8 @@
 "use client"
 import { useState } from "react";
 import Image from "next/image";
+import {Link} from 'react-scroll';
+import {motion} from 'framer-motion';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,26 +29,28 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 uppercase tracking-wide text-lg">
-                      <a href="#about" className="relative group font-thin">
+                      <Link to="about-us" smooth={true} duration={500}><a className="relative group font-thin">
                         <span className="text-gray-300 transition-colors duration-300 group-hover:text-yellow-300">
                           About Us
                         </span>
                         <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
-                      </a>
+                      </a></Link>
 
-                      <a href="#contact" className="relative group font-thin">
+                      <Link to="contact" smooth={true} duration={1000}><a href="#contact" className="relative group font-thin">
                         <span className="text-gray-300 transition-colors duration-300 group-hover:text-yellow-300">
                           Contact
                         </span>
                         <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                       </a>
+                      </Link>
 
-                      <a href="#services" className="relative group font-thin">
+                      <Link to="services" smooth={true} duration={500}><a href="#services" className="relative group font-thin">
                         <span className="text-gray-300 transition-colors duration-300 group-hover:text-yellow-300">
                           Services
                         </span>
                         <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                       </a>
+                      </Link>
             </div>
 
 
@@ -88,20 +92,33 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-gray-300 uppercase">
-            <a href="#about" className="block hover:text-white">
-              About Us
-            </a>
-            <a href="#contact" className="block hover:text-white">
-              Contact
-            </a>
-            <a href="#services" className="block hover:text-white">
-              Services
-            </a>
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden bg-gray-900 rounded-b-lg shadow-lg"
+        >
+          <div className="px-4 pt-2 pb-3 space-y-3 sm:px-3">
+            <Link to="about-us" smooth={true} duration={500}>
+              <a className="block py-2 text-base font-medium text-gray-300 hover:text-yellow-300 transition-colors duration-300">
+                About Us
+              </a>
+            </Link>
+            <Link to="contact" smooth={true} duration={1000}>
+              <a className="block py-2 text-base font-medium text-gray-300 hover:text-yellow-300 transition-colors duration-300">
+                Contact
+              </a>
+            </Link>
+            <Link to="services" smooth={true} duration={500}>
+              <a className="block py-2 text-base font-medium text-gray-300 hover:text-yellow-300 transition-colors duration-300">
+                Services
+              </a>
+            </Link>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );
