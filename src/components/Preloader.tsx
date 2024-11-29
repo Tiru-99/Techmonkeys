@@ -1,6 +1,8 @@
 "use client"
+
 import React, { useState, useEffect } from 'react'
 import { motion, Variants } from 'framer-motion'
+import Image from 'next/image'
 
 export default function SmoothTypewriterPreloader() {
   const word = "TECHMONKEYS"
@@ -10,13 +12,10 @@ export default function SmoothTypewriterPreloader() {
   useEffect(() => {
     const typingTimeout = setTimeout(() => {
       setIsTypingDone(true)
-      // Immediately trigger shrinking when typing is done
       setIsShrinking(true)
-    }, word.length * 100 + 500) // Reduced extra delay to 500ms
+    }, word.length * 100 + 500)
     return () => clearTimeout(typingTimeout)
   }, [])
-
-  // Removed the second useEffect since we don't need the extra delay anymore
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -55,8 +54,22 @@ export default function SmoothTypewriterPreloader() {
     shrink: { 
       height: 0,
       transition: { 
-        duration: 1, // Reduced duration for quicker animation
+        duration: 1,
         ease: [0.7, 0, 0.3, 1],
+      }
+    }
+  }
+
+  const logoVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, x: -20 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      x: 0,
+      transition: {
+        delay: 0.2,
+        duration: 0.5,
+        ease: "easeOut"
       }
     }
   }
@@ -66,27 +79,42 @@ export default function SmoothTypewriterPreloader() {
       <motion.div 
         className="fixed inset-0 bg-yellow-400 flex items-center justify-center z-50"
         animate={!isShrinking ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.3 }} // Faster fade out
+        transition={{ duration: 0.3 }}
       >
-        <motion.div
-          className="text-6xl font-bold text-black"
-          variants={containerVariants}
-          initial="hidden"
-          animate={!isTypingDone ? "visible" : "hidden"}
-          aria-live="polite"
-          style={{ zIndex: 60 }}
-        >
-          {word.split("").map((letter, index) => (
-            <motion.span 
-              key={index} 
-              variants={childVariants} 
-              className="inline-block text-black text-2xl "
-              style={{ color: '#000000' }}
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </motion.div>
+        <div className="flex items-center space-x-4 flex-row-reverse">
+          <motion.div
+            className="text-6xl font-bold text-black"
+            variants={containerVariants}
+            initial="hidden"
+            animate={!isTypingDone ? "visible" : "hidden"}
+            aria-live="polite"
+            style={{ zIndex: 60 }}
+          >
+            {word.split("").map((letter, index) => (
+              <motion.span 
+                key={index} 
+                variants={childVariants} 
+                className="inline-block text-black text-2xl"
+                style={{ color: '#000000' }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.div>
+          <motion.div
+            variants={logoVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <Image
+              src="/techmonkey_logo_black.png"
+              alt="TechMonkey Logo"
+              width={60}
+              height={60}
+              className="object-contain mr-2 mt-3"
+            />
+          </motion.div>
+        </div>
       </motion.div>
 
       <motion.div 
@@ -102,3 +130,4 @@ export default function SmoothTypewriterPreloader() {
     </>
   )
 }
+

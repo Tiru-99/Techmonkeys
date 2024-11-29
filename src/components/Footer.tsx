@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
@@ -10,9 +10,9 @@ const Footer: React.FC = () => {
           <p className="text-gray-400 mb-6">
             Feel free to send us your questions or request a free consultation.
           </p>
-          <button className="bg-yellow-500 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-600">
+          <Link href="https://wa.me/+971585605980?text=Hello%20there!%20I'd%20like%20to%20contact%20you%20regarding%20Techmonkeys."><button className="bg-yellow-500 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-600">
             SEND A MESSAGE
-          </button>
+          </button></Link>
         </div>
         
       </div>
