@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect , useRef} from "react";
 import Aboutus from "@/components/Aboutus";
 import Footer from "@/components/Footer";
-import { useRouter } from "next/navigation";
 import SmoothTypewriterPreloader from "@/components/Preloader";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import OurServices from "@/components/OurServices";
@@ -14,7 +13,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const[isHovered , setIsHovered] = useState(false);
   const circleRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter(); 
+  
 
   const handleMouseMove=(e: React.MouseEvent<HTMLDivElement>) =>{
     if(circleRef.current){
