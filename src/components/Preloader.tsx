@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, Variants } from 'framer-motion'
 import Image from 'next/image'
 
+
 export default function SmoothTypewriterPreloader() {
   const word = "TECHMONKEYS"
   const [isTypingDone, setIsTypingDone] = useState(false)
@@ -81,26 +82,7 @@ export default function SmoothTypewriterPreloader() {
         animate={!isShrinking ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex items-center space-x-4 flex-row-reverse">
-          <motion.div
-            className="text-6xl font-bold text-black"
-            variants={containerVariants}
-            initial="hidden"
-            animate={!isTypingDone ? "visible" : "hidden"}
-            aria-live="polite"
-            style={{ zIndex: 60 }}
-          >
-            {word.split("").map((letter, index) => (
-              <motion.span 
-                key={index} 
-                variants={childVariants} 
-                className="inline-block text-black text-2xl"
-                style={{ color: '#000000' }}
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </motion.div>
+        <div className="flex items-center space-x-2">
           <motion.div
             variants={logoVariants}
             initial="hidden"
@@ -111,8 +93,31 @@ export default function SmoothTypewriterPreloader() {
               alt="TechMonkey Logo"
               width={60}
               height={60}
-              className="object-contain mr-2 mt-3"
+              className="object-contain mr-2"
             />
+          </motion.div>
+          <motion.div
+            className={`text-6xl text-black font-bahnschrift`}
+            variants={containerVariants}
+            initial="hidden"
+            animate={!isTypingDone ? "visible" : "hidden"}
+            aria-live="polite"
+            style={{ zIndex: 60 }}
+          >
+            {word.split("").map((letter, index) => (
+              <motion.span 
+                key={index} 
+                variants={childVariants} 
+                className={`inline-block text-black text-2xl md:text-4xl ${index < 4 ? 'font-bold' : 'font-normal'}`}
+                style={{ 
+                  color: '#000000',
+                  letterSpacing: '-0.04em',
+                  fontStretch: '85%',
+                }}
+              >
+                {letter}
+              </motion.span>
+            ))}
           </motion.div>
         </div>
       </motion.div>
