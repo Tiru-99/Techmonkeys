@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'Bahnschrift';
-    src: url('/fonts/Bahnschrift.ttf') format('truetype');
+    src: url('/fonts/Bahnschrift.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
