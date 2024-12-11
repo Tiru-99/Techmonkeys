@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Achyt , Kathmandu Nepal ",
+    name: "Achyut , Kathmandu Nepal ",
     role: "Owner, The Laughing Sherpa",
     content: "Tech Monkey has been instrumental in bringing The Laughing Sherpa's vision to life. Our mission to empower farmers in Nepal by bringing their products to the global market required a robust and impactful e-commerce platform, and Tech Monkey delivered just that.The website they built for us is not only visually stunning but also incredibly functional, enabling seamless transactions and showcasing our story of sustainability and community impact. Their dedication to understanding our values and translating them into a digital experience is truly remarkable.Thanks to Tech Monkey, we’re making a difference while connecting with customers worldwide!",
     rating: 5,

@@ -49,7 +49,11 @@ export default function Home() {
     <>
       <Navbar />
       <div className="bg-black">
-        <div className="text-gray-400 text-3xl pt-12 text-center md:text-justify mx-auto md:text-7xl md:pt-32 md:ml-44 font-semibold tracking-widest">
+        <div className="text-gray-300 text-3xl pt-12 text-center md:text-justify mx-auto md:text-7xl md:pt-32 md:ml-44 font-bahnschrift font-thin tracking-widest"
+         style={{ 
+          letterSpacing: '0.1em',
+          fontStretch: '90%',
+        }}>
           NO TECH CHALLENGE IS TOO <br />
           {/* Animate each letter of "BANANAS" */}
           <motion.span
@@ -109,8 +113,8 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <div className="flex flex-wrap justify-around gap-8 p-4 bg-gray-100">
-        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0">
+      <div className="flex flex-wrap justify-around gap-8 p-4 bg-gray-100 md:py-24  ">
+        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0 scale-150">
           <Image
             src="/aws.png"
             alt="AWS"
@@ -120,7 +124,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0">
+        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0 scale-150">
           <Image
             src="/google cloud.png"
             alt="Google Cloud"
@@ -130,7 +134,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0">
+        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0 scale-150">
           <Image
             src="/adobe.png"
             alt="Adobe"
@@ -140,7 +144,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0">
+        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0 scale-150">
           <Image
             src="/SAP.png"
             alt="SAP"
@@ -150,7 +154,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0">
+        <div className="w-32 h-32 overflow-hidden filter grayscale transition duration-300 hover:grayscale-0 scale-150">
           <Image
             src="/salesforce.png"
             alt="Salesforce"

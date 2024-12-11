@@ -12,7 +12,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-black text-white pt-8">
+    <nav className="bg-black text-white pt-8 font-bahnschrift" 
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
@@ -28,8 +29,12 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 uppercase tracking-wide text-lg">
-                      <Link to="about-us" smooth={true} duration={500}><a className="relative group font-thin">
+          <div className="hidden md:flex space-x-8 uppercase tracking-wide text-lg" 
+          style={{ 
+            letterSpacing: '3px',
+            fontStretch: '70%',
+          }}>
+                      <Link to="about-us" smooth={true} duration={500}><a className="relative group font-extralight\">
                         <span className="text-gray-300 transition-colors duration-300 group-hover:text-yellow-300">
                           About Us
                         </span>

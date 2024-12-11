@@ -50,8 +50,8 @@ export default function OurServices(): JSX.Element {
 function LeftSection(): JSX.Element {
   return (
     <div className="w-full lg:w-1/3 mb-6 lg:mb-0 pt-12">
-      <h2 className="font-black text-6xl mb-8 tracking-tight">OUR SERVICES</h2>
-      <p className="text-lg leading-relaxed text-gray-600 max-w-xl">
+      <h2 className="text-6xl mb-8 font-black tracking-tight">OUR SERVICES</h2>
+      <p className="text-lg leading-relaxed text-gray-600 max-w-xl font-bahnschrift">
       At Tech Monkey, we specialize in delivering a range of innovative solutions that are tailored to meet the unique needs of your business. With a team of experienced professionals and a client-centric approach, we ensure that every solution is designed to not only address your current requirements but also scale with your future growth. Our core services span across key technological areas that empower your business to stay ahead of the competition and thrive in a digital-first world.
       </p>
     </div>
