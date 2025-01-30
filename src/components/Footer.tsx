@@ -43,7 +43,6 @@ const Footer: React.FC = () => {
               <p>PHONE</p>
               <p>+971585605980, +971 585857795</p>
               <p className="mt-4">support@techmonkey.us</p>
-              <p>info@logoipsum.com</p>
             </div>
           </div>
 
